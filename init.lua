@@ -165,7 +165,9 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Save file when it has changed
-vim.keymap.set('n', '<leader>w', ':update', { desc = 'Save file to disk if it was [U]pdated' })
+vim.keymap.set('n', '<leader>w', ':update<cr>', { desc = 'Save file to disk if it was [U]pdated' })
+-- Open a new tab at the root
+vim.keymap.set('n', '<leader>nt', ':tabnew .<cr>', { desc = 'Open a [N]ew [T]ab at the cwd.' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
