@@ -7,7 +7,11 @@ return {
   opts = function()
     local metals_config = require('metals').bare_config()
     metals_config.on_attach = function(client, bufnr)
-      -- your on_attach function
+      local ts = require 'telescope'
+      local metals_map = function(keys, func, desc)
+        vim.keymap.set('n', '<leader>m' .. keys, func, { buffer = bufnr, desc = 'Metals: ' .. desc })
+      end
+      metals_map('c', ts.extensions.metals.commands, 'Find metals command')
     end
 
     return metals_config
